@@ -19,8 +19,8 @@
     CGFloat detailHeight = CGRectGetHeight(self.detailTextLabel.frame);
     if (detailHeight) { // if no detailTextLabel (or UITableViewCellStyleDefault) then no adjustment necessary
         // Determine UITableViewCellStyle by looking at textLabel vs detailTextLabel layout
-        if (CGRectGetMinY(self.detailTextLabel.frame) == CGRectGetMinY(self.textLabel.frame)) {
-            // Top-aligned textLabel & detailTextLabel means UITableViewCellStyleValue1 or UITableViewCellStyleValue2
+        if (CGRectGetMinX(self.detailTextLabel.frame) > CGRectGetMinX(self.textLabel.frame)) {
+            // detailTextLabel right of textLabel means UITableViewCellStyleValue1 or UITableViewCellStyleValue2
             if (CGRectGetHeight(self.detailTextLabel.frame) > CGRectGetHeight(self.textLabel.frame)) {
                 // If detailTextLabel is taller than textLabel then add difference to cell height
                 size.height += CGRectGetHeight(self.detailTextLabel.frame) - CGRectGetHeight(self.textLabel.frame);
